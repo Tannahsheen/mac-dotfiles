@@ -30,8 +30,7 @@ done
 chmod +x "$DOTFILES/sketchybar/plugins/"*.sh
 
 echo "==> nvim"
-symlink "$DOTFILES/nvim/lua/plugins/colorscheme.lua" \
-        "$HOME/.config/nvim/lua/plugins/colorscheme.lua"
+symlink "$DOTFILES/nvim" "$HOME/.config/nvim"
 
 echo "==> tmux"
 symlink "$DOTFILES/tmux/.tmux.conf" "$HOME/.tmux.conf"
