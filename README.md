@@ -1,4 +1,4 @@
-# dotfiles
+# mac-dotfiles
 
 Mac pentest workstation config. Symlinked via `install.sh`.
 
@@ -10,14 +10,14 @@ Mac pentest workstation config. Symlinked via `install.sh`.
 | ohmy-pentest-report theme (macOS patched) | `~/.oh-my-zsh/custom/themes/` |
 | AeroSpace tiling WM | `~/.aerospace.toml` |
 | Sketchybar status bar | `~/.config/sketchybar/` |
-| Neovim (tokyonight colorscheme) | `~/.config/nvim/lua/plugins/colorscheme.lua` |
+| Neovim / LazyVim | `~/.config/nvim/` |
 | tmux | `~/.tmux.conf` |
 
 ## Install
 
 ```bash
-git clone https://github.com/Tannahsheen/dotfiles ~/dotfiles
-bash ~/dotfiles/install.sh
+git clone https://github.com/Tannahsheen/mac-dotfiles ~/mac-dotfiles
+bash ~/mac-dotfiles/install.sh
 ```
 
 Existing files are backed up as `<file>.bak` before being replaced.
