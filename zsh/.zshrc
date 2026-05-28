@@ -4,7 +4,7 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting web-search)
 source $ZSH/oh-my-zsh.sh
 
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
-export PATH="$HOME/.local/sbin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/.local/sbin:$PATH"
 
 # === pentest aliases ===
 
