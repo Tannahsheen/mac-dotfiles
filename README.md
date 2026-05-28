@@ -12,6 +12,7 @@ Mac pentest workstation config. Symlinked via `install.sh`.
 | Sketchybar status bar | `~/.config/sketchybar/` |
 | Neovim / LazyVim | `~/.config/nvim/` |
 | tmux | `~/.tmux.conf` |
+| iTerm2 profile | loaded from `iterm2/` via preferences folder |
 
 ## Install
 

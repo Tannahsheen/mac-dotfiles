@@ -14,6 +14,11 @@ symlink() {
     echo "  linked: $dst"
 }
 
+echo "==> iterm2"
+defaults write com.googlecode.iterm2 PrefsCustomFolder -string "$DOTFILES/iterm2"
+defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
+echo "  prefs folder set — restart iTerm2 to apply"
+
 echo "==> zsh"
 symlink "$DOTFILES/zsh/.zshrc" "$HOME/.zshrc"
 symlink "$DOTFILES/zsh/themes/ohmy-pentest-report.zsh-theme" \
