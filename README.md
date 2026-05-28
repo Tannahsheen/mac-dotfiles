@@ -24,7 +24,7 @@ Existing files are backed up as `<file>.bak` before being replaced.
 
 ## Shell theme
 
-Uses [ohmy-pentest-report](https://deephacking.tech/) with macOS fixes:
+Uses ohmy-pentest-report with macOS fixes:
 - `enableall` — show date + local IP in prompt
 - `setip <interface|ip|public>` — pin IP in prompt
 - `disableall` — clean prompt
