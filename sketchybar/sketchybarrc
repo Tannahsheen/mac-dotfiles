@@ -1,0 +1,81 @@
+#!/bin/bash
+
+PLUGIN_DIR="$CONFIG_DIR/plugins"
+
+CYAN=0xff7dcfff
+DIM=0xff627e97
+BAR_BG=0xcc011628
+ACTIVE_BG=0xff143652
+INACTIVE_BG=0x22ffffff
+
+sketchybar --bar \
+  position=top \
+  height=36 \
+  blur_radius=20 \
+  color=$BAR_BG \
+  padding_left=8 \
+  padding_right=8
+
+sketchybar --default \
+  padding_left=4 \
+  padding_right=4 \
+  icon.font="Hack Nerd Font:Bold:13.0" \
+  label.font="Hack Nerd Font:Regular:13.0" \
+  icon.color=$DIM \
+  label.color=$DIM
+
+# Workspace indicators (aerospace)
+for i in 1 2 3 4 5 6 7 8 9; do
+  sketchybar --add item space.$i left \
+    --set space.$i \
+      icon="$i" \
+      icon.padding_left=7 \
+      icon.padding_right=7 \
+      label.drawing=off \
+      background.color=$INACTIVE_BG \
+      background.corner_radius=6 \
+      background.height=22 \
+      script="$PLUGIN_DIR/space.sh" \
+      click_script="aerospace workspace $i" \
+    --subscribe space.$i aerospace_workspace_change
+done
+
+# Active app name
+sketchybar --add item front_app left \
+  --set front_app \
+    icon.drawing=off \
+    label.color=$CYAN \
+    label.font="Hack Nerd Font:Bold:13.0" \
+    padding_left=10 \
+    script="$PLUGIN_DIR/front_app.sh" \
+  --subscribe front_app front_app_switched
+
+# VPN / Tailscale indicator
+sketchybar --add item vpn right \
+  --set vpn \
+    update_freq=15 \
+    icon="󰖂" \
+    icon.padding_right=2 \
+    script="$PLUGIN_DIR/vpn.sh"
+
+# Clock
+sketchybar --add item clock right \
+  --set clock \
+    update_freq=10 \
+    icon.drawing=off \
+    script="$PLUGIN_DIR/clock.sh"
+
+# Volume
+sketchybar --add item volume right \
+  --set volume \
+    script="$PLUGIN_DIR/volume.sh" \
+  --subscribe volume volume_change
+
+# Battery
+sketchybar --add item battery right \
+  --set battery \
+    update_freq=120 \
+    script="$PLUGIN_DIR/battery.sh" \
+  --subscribe battery system_woke power_source_change
+
+sketchybar --update
